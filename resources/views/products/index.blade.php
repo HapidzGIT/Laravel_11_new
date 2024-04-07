@@ -26,10 +26,16 @@
                 <td>{{$product->quantity}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->description}}</td>
-                <td><a href="{{route('products.edit', ['product' => $product])}}">Edit</a></td>
+                <td><a href="{{route('products.edit', ['product' => $product])}}">Edit</a>
+                    <form action="/product/{{$product->id}}" method="POST" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger" data-id="{{$product->id}}" onclick="return confirm('Yakin Mau dihapus barangnya?')">Delete</button>
+                    </form></td>
+
             </tr>
-            @endforeach
         </table>
+            @endforeach
         <button><a href="/product/create">Create Data</a></button>
     </div>
 </body>

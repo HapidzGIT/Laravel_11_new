@@ -53,4 +53,10 @@ class ProductController extends Controller
 
         return redirect(route('product.index'))->with('Success', 'Update Product');
     }
+
+    public function destroy($id) {
+        Product::destroy($id);
+        return redirect(route('product.index'))->with('Success', 'Delete Product');
+    }
+
 }

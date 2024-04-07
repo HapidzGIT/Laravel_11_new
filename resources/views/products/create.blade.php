@@ -9,13 +9,7 @@
   <body>
     <h1>Create!</h1>
    <div>
-    @if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li class="bg-red">{{$error}}</li>
-        @endforeach
-    </ul>
-    @endif
+
    </div>
 
 
@@ -25,15 +19,24 @@
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
             <input type="text" name="name" placeholder="Create a new product">
+            @error('name')
+            <p>{{$message}}</p>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Quantity</label>
             <input type="text" name="quantity" placeholder="Jumlah Barang">
         </div>
+        @error('name')
+        <p>{{$message}}</p>
+        @enderror
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Price</label>
             <input type="text" name="price" placeholder="Harga Barang">
         </div>
+        @error('name')
+        <p>{{$message}}</p>
+        @enderror
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Description</label>
             <input type="text" name="description" placeholder="Deskripsi Barang">
